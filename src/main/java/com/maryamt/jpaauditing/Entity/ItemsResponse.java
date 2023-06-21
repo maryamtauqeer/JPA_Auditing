@@ -18,11 +18,12 @@ public class ItemsResponse extends ItemsDTO {
             final String material,
             final String price,
             final String promotionCode,
+            final Stores store_id,
             final String createdBy,
             final String creationDate,
             final String lastModifiedBy,
             final String lastModifiedDate) {
-        super(id, itemsName, material, price, promotionCode);
+        super(id, itemsName, material, price, promotionCode, store_id);
         this.createdBy=createdBy;
         this.creationDate = creationDate;
         this.lastModifiedBy = lastModifiedBy;
@@ -32,9 +33,10 @@ public class ItemsResponse extends ItemsDTO {
     public static ItemsResponse from(final Items items) {
         return new ItemsResponse(items.getId(),
                 items.getItemsName(),
-                items.getItemsName(),
+                items.getMaterial(),
                 items.getPrice(),
                 items.getPromotionCode(),
+                items.getStore_id(),
                 items.getCreatedBy(),
                 items.getCreationDate().toString(),
                 items.getLastModifiedBy(),

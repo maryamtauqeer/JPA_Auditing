@@ -1,5 +1,6 @@
 package com.maryamt.jpaauditing.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.maryamt.jpaauditing.Audit.Auditable;
 import jakarta.persistence.*;
 import lombok.*;
@@ -29,5 +30,10 @@ public class Items extends Auditable<String> {
 
     @Column(name = "promotionCode")
     String promotionCode;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_store_id", referencedColumnName = "id")
+    private Stores store_id;
 
 }

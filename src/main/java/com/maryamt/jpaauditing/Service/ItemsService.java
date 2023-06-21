@@ -30,6 +30,7 @@ public class ItemsService {
                 .material(dto.getMaterial())
                 .price(dto.getPrice())
                 .promotionCode(dto.getPromotionCode())
+                .store_id(dto.getStore_id())
                 .build();
         repository.save(item);
         return ItemsResponse.from(item);
@@ -58,6 +59,7 @@ public class ItemsService {
                 .material(dto.getMaterial())
                 .price(dto.getPrice())
                 .promotionCode(dto.getPromotionCode())
+                .store_id(dto.getStore_id())
                 .build();
         repository.save(i);
     }
